@@ -31,11 +31,14 @@ public class Hippodrome {
         return Collections.unmodifiableList(horses);
     }
 
+
     public void move() {
         horses.forEach(Horse::move);
     }
 
     public Horse getWinner() {
+
+
         return horses.stream()
                 .max(Comparator.comparing(Horse::getDistance))
                 .get();

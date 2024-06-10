@@ -13,6 +13,7 @@ private static final Logger logger = LogManager.getLogger(Horse.class);
     private final double speed;
     private double distance;
 
+
     public Horse(String name, double speed, double distance) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss,SSS");
         String formattedDateTime = LocalDateTime.now().format(formatter);
