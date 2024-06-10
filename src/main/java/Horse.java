@@ -1,4 +1,3 @@
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -8,7 +7,7 @@ import java.time.format.DateTimeFormatter;
 import static java.util.Objects.isNull;
 
 public class Horse {
-private static final Logger logger = LogManager.getLogger(Horse.class);
+    private static final Logger logger = LogManager.getLogger(Horse.class);
     private final String name;
     private final double speed;
     private double distance;
@@ -25,7 +24,7 @@ private static final Logger logger = LogManager.getLogger(Horse.class);
             throw new IllegalArgumentException("Name cannot be blank.");
         }
         if (speed < 0) {
-            logger.error( "{} ERROR Horse: Speed is negative", formattedDateTime);
+            logger.error("{} ERROR Horse: Speed is negative", formattedDateTime);
             throw new IllegalArgumentException("Speed cannot be negative.");
         }
         if (distance < 0) {

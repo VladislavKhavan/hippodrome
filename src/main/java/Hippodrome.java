@@ -23,6 +23,7 @@ public class Hippodrome {
             logger.error("{} ERROR Hippodrome: Horses list is empty", formattedDateTime);
             throw new IllegalArgumentException("Horses cannot be empty.");
         }
+
         this.horses = horses;
         logger.debug("{} DEBUG Hippodrome: створення Hippodrome, коней [{}]", formattedDateTime, horses.size());
     }

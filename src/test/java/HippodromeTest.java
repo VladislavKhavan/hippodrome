@@ -90,8 +90,9 @@ public class HippodromeTest {
             verify(horse).move();
         }
     }
+
     @Test
-    public void testConstructor_testWinner(){
+    public void testConstructor_testWinner() {
         List<Horse> horseList = new ArrayList<>();
         Horse horse = new Horse("Horse", 10, 20);
         Horse expectedWinner = new Horse("Horse1", 5, 40);
@@ -101,7 +102,7 @@ public class HippodromeTest {
         horseList.add(horse2);
         Hippodrome hippodrome = new Hippodrome(horseList);
         var actualWinner = hippodrome.getWinner();
-        assertSame(expectedWinner,actualWinner);
+        assertSame(expectedWinner, actualWinner);
     }
 
 }

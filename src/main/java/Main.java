@@ -4,6 +4,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,6 +12,7 @@ import static java.util.logging.Level.INFO;
 
 public class Main {
     private static final Logger logger = LogManager.getLogger(Main.class);
+
     public static void main(String[] args) throws Exception {
         List<Horse> horses = List.of(
                 new Horse("Bucephalus", 2.4),
@@ -20,6 +22,7 @@ public class Main {
                 new Horse("Lobster", 2.8),
                 new Horse("Pegasus", 2.9),
                 new Horse("Cherry", 3)
+
         );
         Hippodrome hippodrome = new Hippodrome(horses);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss,SSS");

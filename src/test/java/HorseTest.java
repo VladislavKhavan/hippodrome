@@ -5,6 +5,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.mockito.Mockito.*;
+
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 
@@ -68,34 +69,36 @@ public class HorseTest {
         double actualSpeed = horse.getSpeed();
         assertEquals(expectedSpeed, actualSpeed);
     }
+
     @Test
-    public void testConstructor_getDistance(){
+    public void testConstructor_getDistance() {
         double expectedDistance = 10.2;
         Horse horse = new Horse("Horse", 5.0, expectedDistance);
         double actualDistance = horse.getDistance();
         assertEquals(expectedDistance, actualDistance);
     }
+
     @Test
-    public void testConstructor_checkZero(){
+    public void testConstructor_checkZero() {
         double expectedValue = 0;
         Horse horse = new Horse("Horse", 5.0);
         double actualValue = horse.getDistance();
         assertEquals(expectedValue, actualValue);
     }
+
     @ParameterizedTest
     @CsvSource({"0.2, 0.9, 0.5, 10.0, 5.0, 12.5",
-                "0.2, 0.9, 0.2, 15.0, 5.0, 16.0",
-                "0.2, 0.9, 0.8, 20.0, 7.0, 25.6"})
-    void testConstructor_moveParameters(double min, double max, double mockedResult, double intialDistance, double speed, double finalDistance){
-        try(MockedStatic<Horse> utilities = mockStatic(Horse.class)){
-          utilities.when(()-> Horse.getRandomDouble(min, max)).thenReturn(mockedResult);
-          Horse horse = new Horse("Horse", speed, intialDistance);
-          horse.move();
-          utilities.verify(() ->Horse.getRandomDouble(min, max));
-          assertEquals(finalDistance, horse.getDistance());
+            "0.2, 0.9, 0.2, 15.0, 5.0, 16.0",
+            "0.2, 0.9, 0.8, 20.0, 7.0, 25.6"})
+    void testConstructor_moveParameters(double min, double max, double mockedResult, double intialDistance, double speed, double finalDistance) {
+        try (MockedStatic<Horse> utilities = mockStatic(Horse.class)) {
+            utilities.when(() -> Horse.getRandomDouble(min, max)).thenReturn(mockedResult);
+            Horse horse = new Horse("Horse", speed, intialDistance);
+            horse.move();
+            utilities.verify(() -> Horse.getRandomDouble(min, max));
+            assertEquals(finalDistance, horse.getDistance());
         }
     }
-
 
 
 }
